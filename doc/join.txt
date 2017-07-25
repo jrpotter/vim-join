@@ -1,0 +1,30 @@
+*smart-join* functionality of smart joining
+
+==============================================================================
+CONTENTS                                                 *smart-join-contents*
+
+1. Usage .................................................. |smart-join-usage|
+2. Variables .......................................... |smart-join-variables|
+
+==============================================================================
+Section 1: Usage                                             *highlight-usage*
+
+<Plug>SmartJoin      Performs a smart join on [count] line and the one below
+                     it. If [count] is too big it is reduced to the number of
+                     lines available. Fails when on the last line of the
+                     buffer.
+
+==============================================================================
+Section 2: Variables                                    *smart-join-variables*
+
+g:smart_join_strip_whitespace_before
+
+    If true, indicates that before joining we strip any trailing whitespace on
+    the current line.
+
+g:smart_join_strip_whitespace_after
+
+    If true, indicates that after joining we strip any trailing whitespace on
+    the current line.
+
+vim:tw=78:ts=8:ft=help:norl:
