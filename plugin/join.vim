@@ -108,6 +108,11 @@ function! s:SmartJoin(count)
     let l:linebreak = s:SmartJoinLine()
     if l:linebreak
       exe "normal! j"
+      " If the line we joined was also greater than textwidth, we should apply a
+      " smart join to the line before continuing.
+      if &textwidth != 0 && strlen(getline('.')) > &textwidth
+        call s:SmartJoin(1)
+      endif
     endif
     if g:smart_join_strip_whitespace_after
       call setline('.', s:StripTrailing(getline('.')))
@@ -128,10 +133,23 @@ function! g:SaveCursorSmartJoin(count)
 endfunction
 
 
+" FUNCTION: SaveCursorVisualSmartJoin(count) {{{1
+" ==============================================================================
+" A wrapper around SmartJoin(count) used to save the cursor position.
+
+function! g:SaveCursorVisualSmartJoin()
+  call setpos('.', getpos("'<"))
+  call s:SmartJoin(getpos("'>")[1] - getpos('.')[1])
+  exe "normal! `<"
+endfunction
+
+
 " MAPPINGS: {{{1
 " ==============================================================================
 
 nmap <Plug>SmartJoin :<C-U> call g:SaveCursorSmartJoin(v:count1)<CR>
+vmap <Plug>VisualSmartJoin :<C-U> call g:SaveCursorVisualSmartJoin()<CR>
 
 nmap <silent> J <Plug>SmartJoin
+vmap <silent> J <Plug>VisualSmartJoin
 
