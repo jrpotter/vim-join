@@ -133,5 +133,5 @@ endfunction
 
 nmap <Plug>SmartJoin :<C-U> call g:SaveCursorSmartJoin(v:count1)<CR>
 
-nmap J <Plug>SmartJoin
+nmap <silent> J <Plug>SmartJoin
 
