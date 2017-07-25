@@ -7,9 +7,9 @@ CONTENTS                                                 *smart-join-contents*
 2. Variables .......................................... |smart-join-variables|
 
 ==============================================================================
-Section 1: Usage                                             *highlight-usage*
+Section 1: Usage                                            *smart-join-usage*
 
-<Plug>SmartJoin      Performs a smart join on [count] line and the one below
+J                    Performs a smart join on [count] line and the one below
                      it. If [count] is too big it is reduced to the number of
                      lines available. Fails when on the last line of the
                      buffer.

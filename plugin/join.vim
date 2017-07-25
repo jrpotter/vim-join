@@ -123,7 +123,7 @@ endfunction
 
 function! g:SaveCursorSmartJoin(count)
   let l:curpos = getcurpos()
-  call s:SmartJoin(a:count - 1)
+  call s:SmartJoin(a:count)
   call setpos('.', l:curpos)
 endfunction
 
@@ -131,5 +131,7 @@ endfunction
 " MAPPINGS: {{{1
 " ==============================================================================
 
-noremap <Plug>SmartJoin :<C-U> call g:SaveCursorSmartJoin(v:count1)<CR>
+nmap <Plug>SmartJoin :<C-U> call g:SaveCursorSmartJoin(v:count1)<CR>
+
+nmap J <Plug>SmartJoin
 

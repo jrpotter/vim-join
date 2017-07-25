@@ -1,0 +1,4 @@
+smart-join	join.txt	/*smart-join*
+smart-join-contents	join.txt	/*smart-join-contents*
+smart-join-usage	join.txt	/*smart-join-usage*
+smart-join-variables	join.txt	/*smart-join-variables*
