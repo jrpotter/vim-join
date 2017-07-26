@@ -139,7 +139,7 @@ endfunction
 
 function! g:SaveCursorVisualSmartJoin()
   call setpos('.', getpos("'<"))
-  call s:SmartJoin(getpos("'>")[1] - getpos('.')[1] - 1)
+  call s:SmartJoin(getpos("'>")[1] - getpos('.')[1])
   exe "normal! `<"
 endfunction
 
