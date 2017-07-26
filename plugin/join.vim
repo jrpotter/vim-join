@@ -69,13 +69,13 @@ function! s:SmartJoinLine()
   endif
   " If the character at textwidth is a whitespace character, we should simply
   " place a line break at textwidth.
-  if match(l:line[&textwidth - 1], '\W\+') != -1
+  if match(l:line[&textwidth - 1], '\s\+') != -1
     exe "normal! r\<CR>"
     return 1
   " If the character following textwidth is a whitespace character, we simply
   " create a line break at this point. Note that :join will already clear out
   " any trailing whitespace between the two lines.
-  elseif match(l:line[&textwidth], '\W\+') != -1
+  elseif match(l:line[&textwidth], '\s\+') != -1
     exe "normal! lr\<CR>"
     return 1
   " The last possibility includes whether or not the current word runs through
@@ -85,7 +85,7 @@ function! s:SmartJoinLine()
     " In this case, we first check if we are at the beginning of the word
     " already (by verifying whether or not there exists a whitespace character
     " at the position left of the textwidth).
-    if match(l:line[&textwidth - 2], '\W\+') == -1
+    if match(l:line[&textwidth - 2], '\s\+') == -1
       exe "normal! B"
     endif
     " Check if WORD goes past textwidth and break at this point if it does.
